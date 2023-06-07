@@ -1,10 +1,13 @@
 # backend-sample app
 
-Run 
+Run
+
 ```
 docker-compose build
 ```
-Then 
+
+Then
+
 ```
 docker-compose up
 ```
@@ -12,8 +15,10 @@ docker-compose up
 This should pull up the application with hot swapping from pm2
 
 # API Endpoints
+
 The following endpoint return the diff in time in milliseconds between today and the date mentioned
-- /tomorrow 
+
+- /tomorrow
 - /yesterday
 - /next_week
 - /next_month
