@@ -36,48 +36,39 @@ const removeTimeInfo = (date) => {
 /** Takes a date string and validates it to
  * ISO 8601 standard
  * */
-const validateInputDate = (dateString) => {
+export const validateInputDate = (dateString) => {
   const date_regex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/;
   return date_regex.test(dateString);
 };
 
-const timeUtilTomorrow = () => {
+export const timeUntilTomorrow = () => {
   let time = new Date();
   time.setDate(time.getDate() + 1);
   time = removeTimeInfo(time);
   return timeUntil(time);
 };
 
-const timeFromYesterday = () => {
+export const timeFromYesterday = () => {
   let time = new Date();
   time.setDate(time.getDate() - 1);
   time = removeTimeInfo(time);
   return timeUntil(time);
 };
 
-const timeUntilNextWeek = () => {
+export const timeUntilNextWeek = () => {
   let time = getMonday(new Date());
   time.setDate(time.getDate() + 7);
   time = removeTimeInfo(time);
   return timeUntil(time);
 };
 
-const timeUntilNextMonth = () => {
+export const timeUntilNextMonth = () => {
   let time = getFirstDayOfNextMonth();
   time = removeTimeInfo(time);
   return timeUntil(time);
 };
 
-const timeUntilCustomDate = (dateString) => {
+export const timeUntilCustomDate = (dateString) => {
   const customDate = new Date(dateString);
   return timeUntil(customDate);
-};
-
-module.exports = {
-  timeUtilTomorrow: timeUtilTomorrow,
-  timeFromYesterday: timeFromYesterday,
-  timeUntilNextWeek: timeUntilNextWeek,
-  timeUntilNextMonth: timeUntilNextMonth,
-  validateInputDate: validateInputDate,
-  timeUntilCustomDate: timeUntilCustomDate,
 };

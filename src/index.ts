@@ -1,7 +1,14 @@
-const express = require("express");
+import express from "express";
+import {
+  timeFromYesterday,
+  timeUntilCustomDate,
+  timeUntilNextMonth,
+  timeUntilNextWeek,
+  timeUntilTomorrow,
+  validateInputDate,
+} from "./timeUtils";
 const app = express();
 const port = 3000;
-const timeUtils = require("./timeUtils");
 const teamName = process.env.TEAM_NAME || "World!";
 
 app.get("/", (req, res) => {
@@ -9,25 +16,25 @@ app.get("/", (req, res) => {
 });
 
 app.get("/tomorrow", (req, res) => {
-  buildJSONResponse(res, timeUtils.timeUtilTomorrow());
+  buildJSONResponse(res, timeUntilTomorrow());
 });
 
 app.get("/yesterday", (req, res) => {
-  buildJSONResponse(res, timeUtils.timeFromYesterday());
+  buildJSONResponse(res, timeFromYesterday());
 });
 
 app.get("/next_week", (req, res) => {
-  buildJSONResponse(res, timeUtils.timeUntilNextWeek());
+  buildJSONResponse(res, timeUntilNextWeek());
 });
 
 app.get("/next_month", (req, res) => {
-  buildJSONResponse(res, timeUtils.timeUntilNextMonth());
+  buildJSONResponse(res, timeUntilNextMonth());
 });
 
 app.get("/at_time", (req, res) => {
   const dateString = req.query.date;
-  if (timeUtils.validateInputDate(dateString)) {
-    buildJSONResponse(res, timeUtils.timeUntilCustomDate(dateString));
+  if (validateInputDate(dateString)) {
+    buildJSONResponse(res, timeUntilCustomDate(dateString));
   } else {
     res.sendStatus(403);
   }
