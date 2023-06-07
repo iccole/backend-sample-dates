@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 3000;
-const timeUtils = require("./timeUtils.js");
+const timeUtils = require("./timeUtils");
 const teamName = process.env.TEAM_NAME || "World!";
 
 app.get("/", (req, res) => {
