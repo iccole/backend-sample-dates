@@ -8,7 +8,6 @@ import {
   validateInputDate,
 } from "./timeUtils";
 const app = express();
-const port = 3000;
 const teamName = process.env.TEAM_NAME || "World!";
 
 app.get("/", (req, res) => {
@@ -40,10 +39,8 @@ app.get("/at_time", (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
-
 const buildJSONResponse = (res, time) => {
-  res.json({ time_remaining: time });
+  res.json({ milliseconds: time });
 };
+
+export default app;

@@ -3,17 +3,17 @@
  * */
 const timeUntil = (endDate: Date) => {
   const currentTime = new Date();
-  return endDate.getMilliseconds() - currentTime.getMilliseconds();
+  return endDate.getTime() - currentTime.getTime();
 };
 
 /** Shamelessly cribbed from online
  * gets the date of Monday of the current week
  * https://stackoverflow.com/questions/4156434/javascript-get-the-first-day-of-the-week-from-current-date
  * */
-const getMonday = (d) => {
+const getSunday = (d) => {
   d = new Date(d);
   const day = d.getDay(),
-    diff = d.getDate() - day + (day == 0 ? -6 : 1); // adjust when day is sunday
+    diff = d.getDate() - day
   return new Date(d.setDate(diff));
 };
 
@@ -30,14 +30,16 @@ const getFirstDayOfNextMonth = () => {
  * Removes all hours minutes and seconds from date
  * */
 const removeTimeInfo = (date) => {
-  return new Date(date.toDateString());
+  date.setHours(0,0,0,0)
+  return date;
 };
 
 /** Takes a date string and validates it to
  * ISO 8601 standard
+ * Updated from https://stackoverflow.com/a/3143231
  * */
 export const validateInputDate = (dateString) => {
-  const date_regex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/;
+  const date_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))/;
   return date_regex.test(dateString);
 };
 
@@ -49,14 +51,15 @@ export const timeUntilTomorrow = () => {
 };
 
 export const timeFromYesterday = () => {
-  let time = new Date();
+  const time = new Date();
   time.setDate(time.getDate() - 1);
-  time = removeTimeInfo(time);
+  // set to last possible millisecond of the day before
+  time.setHours(23,59,59,999);
   return timeUntil(time);
 };
 
 export const timeUntilNextWeek = () => {
-  let time = getMonday(new Date());
+  let time = getSunday(new Date());
   time.setDate(time.getDate() + 7);
   time = removeTimeInfo(time);
   return timeUntil(time);
