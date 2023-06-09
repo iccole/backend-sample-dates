@@ -6,7 +6,7 @@ on:
     - master
 
 jobs:
-  docker:
+  build-pipeline:
     timeout-minutes: 10
     runs-on: ubuntu-latest
 
