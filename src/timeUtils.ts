@@ -13,7 +13,7 @@ const timeUntil = (endDate: Date) => {
 const getSunday = (d) => {
   d = new Date(d);
   const day = d.getDay(),
-    diff = d.getDate() - day
+    diff = d.getDate() - day;
   return new Date(d.setDate(diff));
 };
 
@@ -30,7 +30,7 @@ const getFirstDayOfNextMonth = () => {
  * Removes all hours minutes and seconds from date
  * */
 const removeTimeInfo = (date) => {
-  date.setHours(0,0,0,0)
+  date.setHours(0, 0, 0, 0);
   return date;
 };
 
@@ -39,7 +39,8 @@ const removeTimeInfo = (date) => {
  * Updated from https://stackoverflow.com/a/3143231
  * */
 export const validateInputDate = (dateString) => {
-  const date_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))/;
+  const date_regex =
+    /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))/;
   return date_regex.test(dateString);
 };
 
@@ -54,7 +55,7 @@ export const timeFromYesterday = () => {
   const time = new Date();
   time.setDate(time.getDate() - 1);
   // set to last possible millisecond of the day before
-  time.setHours(23,59,59,999);
+  time.setHours(23, 59, 59, 999);
   return timeUntil(time);
 };
 
