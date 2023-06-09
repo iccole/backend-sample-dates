@@ -13,13 +13,13 @@ const teamName = process.env.TEAM_NAME || "World!";
 
 app.get("/", (req, res) => {
   const { event, context } = getCurrentInvoke();
-  console.log(event, context)
+  console.log(event, context);
   res.send(`Hello, ${teamName}`);
 });
 
 app.get("/tomorrow", (req, res) => {
-  const { event, context } = getCurrentInvoke()
-  console.log(event, context)
+  const { event, context } = getCurrentInvoke();
+  console.log(event, context);
   buildJSONResponse(res, timeUntilTomorrow());
 });
 
