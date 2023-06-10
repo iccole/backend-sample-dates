@@ -14,7 +14,7 @@ app.use(express.json());
 const teamName = process.env.TEAM_NAME || "World!";
 
 app.get("/", (req, res) => {
-  res.send({ welcome: `Hello, ${teamName}!`, version: '1.1' })
+  res.send({ welcome_message: `Hello, ${teamName}!`, version: '1.1' })
 });
 
 app.get("/tomorrow", (req, res) => {
