@@ -7,19 +7,17 @@ import {
   timeUntilTomorrow,
   validateInputDate,
 } from "./timeUtils";
-import { getCurrentInvoke } from "@vendia/serverless-express";
 const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 const teamName = process.env.TEAM_NAME || "World!";
 
 app.get("/", (req, res) => {
-  const { event, context } = getCurrentInvoke();
-  console.log(event, context);
-  res.send(`Hello, ${teamName}`);
+  res.send({ welcome: `Hello, ${teamName}!`, version: '1.1' })
 });
 
 app.get("/tomorrow", (req, res) => {
-  const { event, context } = getCurrentInvoke();
-  console.log(event, context);
   buildJSONResponse(res, timeUntilTomorrow());
 });
 
