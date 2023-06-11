@@ -27,6 +27,9 @@ Why Jest?
 
 With ESLint and prettier enforcing an agreed upon coding style and unit tests proving that regressions aren't introduced/ new features work as intended devs can feel confident in the feature they're presenting and reviewers can have confidence in the quality of the code. Focus can be on how the feature was implemented. Also unit tests are great deliverables for clients to show the code works as intended and helps devs onboarding to a new code base. It's just paying things forward ✨
 
+
+## Local Development 
+
 Run
 
 ```
@@ -39,7 +42,7 @@ Then
 docker-compose up
 ```
 
-This should pull up the application with hot swapping from pm2
+This should pull up the application with hot swapping from nodemon
 
 # API Endpoints
 
