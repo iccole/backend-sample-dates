@@ -13,6 +13,11 @@ I've taken part in dev teams where code reviews pile up or where individual devs
 <img width="568" alt="Screen Shot 2023-06-11 at 5 50 00 PM" src="https://github.com/iccole/backend-sample-dates/assets/8813683/c964bb22-2729-40aa-a33f-c68707c043a4">
 
 
+## Jest
+Why Jest?
+
+With ESLint and prettier enforcing an agreed upon coding style and unit tests proving that regressions aren't introduced/ new features work as intended devs can feel confident in the feature they're presenting and reviewers can have confidence in the quality of the code. Focus can be on how the feature was implemented. Also unit tests are great deliverables for clients to show the code works as intended and helps devs onboarding to a new code base. It's just paying things forward ✨
+
 Run
 
 ```
