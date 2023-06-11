@@ -38,4 +38,4 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           aws lambda update-function-code \
            --function-name backend-sample-dates \
-           --image-uri $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+           --image-uri $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG > /dev/null
