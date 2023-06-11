@@ -2,7 +2,16 @@
 
 This sample application was born from a take home project sent to me during the screening process of my last job. The initial request was to create an API that would return the number of milliseconds between now and tomorrow, yesterday, next week, and next month. 
 
-Initially, the project was `.js` with minimal docker-compose functionality to run the express app. I've updated things for `typescript` transpilation to `.js`, some dev nice-to-haves (`husky` pre-commit hooks and `eslint` linter), `jest` testing, and a `CI/CD` pipeline to run tests and perform deployments to a running public lambda API via my AWS account.
+Initially, the project was `.js` with minimal docker-compose functionality to run the express app. I've updated things for `typescript` transpilation to `.js`, some dev nice-to-haves (`husky` pre-commit hooks and `eslint` linter), `jest` testing, and a `CI/CD` pipeline to run tests and perform deployments to a running public lambda API via my AWS account. It's not perfect but it acts as a proof of concept to show off interdiscinplinary coding skills
+
+## Github CI/CD AWS Deploy 🚀
+Behind this repo is a live API. Please ask for the URL if I have not passed it to you!
+
+```
+curl -X GET $API_URL/next_week
+```
+
+<img width="270" alt="Screen Shot 2023-06-11 at 6 13 46 PM" src="https://github.com/iccole/backend-sample-dates/assets/8813683/92117355-30f7-4933-93bc-436e3b86f99e">
 
 
 ## ESLint + Prettier
